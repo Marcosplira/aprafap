@@ -1,0 +1,80 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparência | APRAFAP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<header class="bg-green-900 text-white p-6">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold">APRAFAP</h1>
+        <p>Portal de Transparência</p>
+    </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-6 py-12">
+
+    <h2 class="text-3xl font-bold text-green-900">
+        Transparência e Prestação de Contas
+    </h2>
+
+    <p class="text-gray-600 mt-4 mb-8">
+        Consulte as informações sobre recursos financeiros,
+        maquinários agrícolas, implementos e equipamentos
+        recebidos pela associação.
+    </p>
+
+    {% for item in publicacoes %}
+    <article class="bg-white p-6 rounded-xl shadow mb-5">
+
+        <span class="text-sm text-green-700 font-bold">
+            {{ item.get_categoria_display }}
+        </span>
+
+        <h3 class="text-xl font-bold mt-2">
+            {{ item.titulo }}
+        </h3>
+
+        <p class="text-gray-600 mt-3">
+            {{ item.descricao }}
+        </p>
+
+        {% if item.valor %}
+        <p class="mt-3 font-semibold">
+            Valor: R$ {{ item.valor }}
+        </p>
+        {% endif %}
+
+        {% if item.documento %}
+        <a href="{{ item.documento.url }}"
+           target="_blank"
+           class="inline-block mt-4 text-green-700
+                  font-bold underline">
+            Consultar documento
+        </a>
+        {% endif %}
+
+    </article>
+
+    {% empty %}
+    <div class="bg-white p-8 rounded-xl text-center">
+        <p class="text-gray-600">
+            Nenhuma publicação disponível no momento.
+        </p>
+    </div>
+    {% endfor %}
+
+</main>
+
+<footer class="bg-green-950 text-white p-6 text-center">
+    APRAFAP – Picuí, Paraíba
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APRAFAP | Agricultura Familiar de Picuí</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="{% static 'institucional/css/style.css' %}">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- MENU -->
+    <header class="bg-green-900 text-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-6 py-4
+                    flex justify-between items-center">
+
+            <a href="#inicio" class="text-2xl font-bold">
+                APRAFAP
+            </a>
+
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="#inicio" class="hover:text-yellow-300">Início</a>
+                <a href="#sobre" class="hover:text-yellow-300">Quem somos</a>
+                <a href="#atividades" class="hover:text-yellow-300">Atividades</a>
+                <a href="#projetos" class="hover:text-yellow-300">Projetos</a>
+                <a href="#transparencia" class="hover:text-yellow-300">Transparência</a>
+            </div>
+
+            <button type="button" id="menu-button" class="md:hidden text-2xl" aria-label="Abrir menu"
+                aria-expanded="false">
+                ☰
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a class="block py-2" href="#inicio">Início</a>
+            <a class="block py-2" href="#sobre">Quem somos</a>
+            <a class="block py-2" href="#atividades">Atividades</a>
+            <a class="block py-2" href="#projetos">Projetos</a>
+            <a class="block py-2" href="#transparencia">Transparência</a>
+        </div>
+    </header>
+
+    <!-- APRESENTAÇÃO -->
+    <main>
+        <section id="inicio" class="bg-green-800 text-white py-24 px-6">
+
+            <div class="max-w-6xl mx-auto text-center">
+
+                <span class="text-yellow-300 font-semibold">
+                    AGRICULTURA FAMILIAR • PICUÍ - PB
+                </span>
+
+                <h1 class="text-4xl md:text-6xl font-bold mt-5">
+                    Fortalecendo o homem do campo
+                </h1>
+
+                <p class="text-lg md:text-xl mt-6 max-w-3xl mx-auto">
+                    União, desenvolvimento e valorização dos
+                    produtores rurais e agricultores familiares
+                    do município de Picuí.
+                </p>
+
+                <a href="#sobre" class="inline-block mt-8 bg-yellow-400
+                          text-green-950 font-bold px-8 py-3
+                          rounded-lg hover:bg-yellow-300">
+                    Conheça a associação
+                </a>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section id="sobre" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+
+                <h2 class="text-3xl font-bold text-green-900
+                           text-center mb-8">
+                    Quem somos
+                </h2>
+
+                <p class="text-lg text-gray-600 leading-relaxed
+                          text-center max-w-4xl mx-auto">
+                    A Associação dos Produtores Rurais e
+                    Agricultores Familiares de Picuí (APRAFAP)
+                    tem como finalidade representar, apoiar e
+                    fortalecer os produtores rurais e agricultores
+                    familiares, contribuindo para o desenvolvimento
+                    da agricultura familiar no município.
+                </p>
+            </div>
+        </section>
+
+        <!-- ATIVIDADES -->
+        <section id="atividades" class="bg-gray-100 py-20 px-6">
+
+            <div class="max-w-6xl mx-auto">
+
+                <h2 class="text-3xl font-bold text-green-900
+                           text-center mb-12">
+                    Nossas atividades
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <article class="bg-white p-8 rounded-xl shadow">
+                        <div class="text-4xl mb-4">🌱</div>
+                        <h3 class="text-xl font-bold mb-3">
+                            Agricultura familiar
+                        </h3>
+                        <p class="text-gray-600">
+                            Valorização dos agricultores e
+                            fortalecimento da produção rural.
+                        </p>
+                    </article>
+
+                    <article class="bg-white p-8 rounded-xl shadow">
+                        <div class="text-4xl mb-4">🤝</div>
+                        <h3 class="text-xl font-bold mb-3">
+                            Capacitação
+                        </h3>
+                        <p class="text-gray-600">
+                            Incentivo à formação e à troca de
+                            conhecimentos entre os associados.
+                        </p>
+                    </article>
+
+                    <article class="bg-white p-8 rounded-xl shadow">
+                        <div class="text-4xl mb-4">🚜</div>
+                        <h3 class="text-xl font-bold mb-3">
+                            Desenvolvimento rural
+                        </h3>
+                        <p class="text-gray-600">
+                            Apoio às iniciativas que contribuem
+                            para o desenvolvimento do campo.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section id="projetos" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+
+                <h2 class="text-3xl font-bold text-green-900 mb-6">
+                    Projetos e ações
+                </h2>
+
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Espaço destinado à divulgação dos projetos,
+                    ações, cursos, reuniões e iniciativas
+                    desenvolvidas pela APRAFAP.
+                </p>
+            </div>
+        </section>
+
+        <!-- TRANSPARÊNCIA -->
+        <section id="transparencia" class="bg-green-900 text-white py-20 px-6">
+
+            <div class="max-w-6xl mx-auto text-center">
+
+                <h2 class="text-3xl font-bold mb-6">
+                    Transparência
+                </h2>
+
+                <p class="text-gray-200 max-w-3xl mx-auto">
+                    Espaço destinado à publicação de documentos
+                    institucionais, informações sobre recursos
+                    recebidos, projetos e prestações de contas.
+                </p>
+
+                <p class="mt-6 text-yellow-300 font-semibold">
+                    Compromisso com a responsabilidade e a
+                    transparência institucional.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-gray-950 text-white py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+
+            <h3 class="text-2xl font-bold">APRAFAP</h3>
+
+            <p class="mt-2 text-gray-400">
+                Associação dos Produtores Rurais e Agricultores
+                Familiares de Picuí
+            </p>
+
+            <p class="text-gray-400 mt-2">
+                Picuí - Paraíba
+            </p>
+
+            <p class="text-sm text-gray-500 mt-6">
+                © <span id="ano"></span> APRAFAP.
+                Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'institucional/js/script.js' %}"></script>
+
+</body>
+
+</html>

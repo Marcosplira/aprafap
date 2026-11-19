@@ -1,0 +1,10 @@
+# Ambiente virtual Python
+aprafap/
+venv/
+env/
+.venv/
+
+# Arquivos temporários do Python e Django
+__pycache__/
+*.py[cod]
+db.sqlite3
