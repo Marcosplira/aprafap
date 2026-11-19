@@ -1,80 +1,173 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparência | APRAFAP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Portal da Transparência | APRAFAP</title>
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'institucional/css/style.css' %}">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
-<header class="bg-green-900 text-white p-6">
-    <div class="max-w-6xl mx-auto">
-        <h1 class="text-3xl font-bold">APRAFAP</h1>
-        <p>Portal de Transparência</p>
-    </div>
-</header>
+    <!-- MENU UNIFICADO -->
+    <header class="bg-green-900 text-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="{% url 'home' %}" class="text-2xl font-bold">
+                APRAFAP
+            </a>
 
-<main class="max-w-6xl mx-auto px-6 py-12">
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="{% url 'home' %}" class="hover:text-yellow-300">Início</a>
+                <a href="{% url 'home' %}#sobre" class="hover:text-yellow-300">Quem somos</a>
+                <a href="{% url 'home' %}#atividades" class="hover:text-yellow-300">Atividades</a>
+                <a href="{% url 'home' %}#projetos" class="hover:text-yellow-300">Projetos</a>
+                <a href="{% url 'transparencia' %}" class="text-yellow-300 font-semibold">Transparência</a>
+            </div>
 
-    <h2 class="text-3xl font-bold text-green-900">
-        Transparência e Prestação de Contas
-    </h2>
+            <button type="button" id="menu-button" class="md:hidden text-2xl" aria-label="Abrir menu" aria-expanded="false">
+                ☰
+            </button>
+        </nav>
 
-    <p class="text-gray-600 mt-4 mb-8">
-        Consulte as informações sobre recursos financeiros,
-        maquinários agrícolas, implementos e equipamentos
-        recebidos pela associação.
-    </p>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a class="block py-2" href="{% url 'home' %}">Início</a>
+            <a class="block py-2" href="{% url 'home' %}#sobre">Quem somos</a>
+            <a class="block py-2" href="{% url 'home' %}#atividades">Atividades</a>
+            <a class="block py-2" href="{% url 'home' %}#projetos">Projetos</a>
+            <a class="block py-2 text-yellow-300 font-semibold" href="{% url 'transparencia' %}">Transparência</a>
+        </div>
+    </header>
 
-    {% for item in publicacoes %}
-    <article class="bg-white p-6 rounded-xl shadow mb-5">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
 
-        <span class="text-sm text-green-700 font-bold">
-            {{ item.get_categoria_display }}
-        </span>
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-green-900">
+                Transparência e Prestação de Contas
+            </h1>
+            <p class="text-gray-600 mt-3">
+                Consulte as informações sobre recursos financeiros, maquinários agrícolas, implementos e equipamentos recebidos pela associação.
+            </p>
+        </div>
 
-        <h3 class="text-xl font-bold mt-2">
-            {{ item.titulo }}
-        </h3>
+        <!-- FORMULÁRIO DE BUSCA E FILTRO -->
+        <form method="GET" action="{% url 'transparencia' %}" class="bg-white p-6 rounded-xl shadow mb-8 grid md:grid-cols-4 gap-4">
+            <div class="md:col-span-2">
+                <label for="busca" class="block text-sm font-semibold text-gray-700 mb-1">Buscar publicação</label>
+                <input type="text" name="busca" id="busca" value="{{ busca_atual }}"
+                       placeholder="Digite título ou palavra-chave..."
+                       class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-green-700">
+            </div>
 
-        <p class="text-gray-600 mt-3">
-            {{ item.descricao }}
-        </p>
+            <div>
+                <label for="categoria" class="block text-sm font-semibold text-gray-700 mb-1">Categoria</label>
+                <select name="categoria" id="categoria"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:border-green-700">
+                    <option value="">Todas as categorias</option>
+                    {% for valor, nome in categorias %}
+                        <option value="{{ valor }}" {% if categoria_atual == valor %}selected{% endif %}>
+                            {{ nome }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        {% if item.valor %}
-        <p class="mt-3 font-semibold">
-            Valor: R$ {{ item.valor }}
-        </p>
-        {% endif %}
+            <div class="flex items-end gap-2">
+                <button type="submit" class="w-full bg-green-800 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700">
+                    Filtrar
+                </button>
+                {% if busca_atual or categoria_atual %}
+                <a href="{% url 'transparencia' %}" class="bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 text-center">
+                    Limpar
+                </a>
+                {% endif %}
+            </div>
+        </form>
 
-        {% if item.documento %}
-        <a href="{{ item.documento.url }}"
-           target="_blank"
-           class="inline-block mt-4 text-green-700
-                  font-bold underline">
-            Consultar documento
-        </a>
-        {% endif %}
+        <!-- LISTA DE PUBLICAÇÕES -->
+        {% for item in publicacoes %}
+        <article class="bg-white p-6 rounded-xl shadow mb-5 border-l-4 border-green-700">
 
-    </article>
+            <div class="flex flex-wrap justify-between items-center gap-2">
+                <span class="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-bold uppercase">
+                    {{ item.get_categoria_display }}
+                </span>
 
-    {% empty %}
-    <div class="bg-white p-8 rounded-xl text-center">
-        <p class="text-gray-600">
-            Nenhuma publicação disponível no momento.
-        </p>
-    </div>
-    {% endfor %}
+                {% if item.data_recebimento %}
+                <span class="text-sm text-gray-500">
+                    Recebido em: {{ item.data_recebimento|date:"d/m/Y" }}
+                </span>
+                {% endif %}
+            </div>
 
-</main>
+            <h2 class="text-xl font-bold text-gray-900 mt-3">
+                {{ item.titulo }}
+            </h2>
 
-<footer class="bg-green-950 text-white p-6 text-center">
-    APRAFAP – Picuí, Paraíba
-</footer>
+            {% if item.orgao_responsavel %}
+            <p class="text-sm text-green-800 font-medium mt-1">
+                Órgão / Origem: {{ item.orgao_responsavel }}
+            </p>
+            {% endif %}
+
+            <p class="text-gray-600 mt-3 leading-relaxed">
+                {{ item.descricao }}
+            </p>
+
+            <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap justify-between items-center gap-4">
+                {% if item.valor %}
+                <p class="font-semibold text-green-900">
+                    Valor: R$ {{ item.valor }}
+                </p>
+                {% else %}
+                <span></span>
+                {% endif %}
+
+                {% if item.documento %}
+                <a href="{{ item.documento.url }}"
+                   target="_blank"
+                   class="inline-flex items-center gap-2 bg-green-800 text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-green-700">
+                    Consultar documento ↗
+                </a>
+                {% endif %}
+            </div>
+
+        </article>
+        {% empty %}
+        <div class="bg-white p-10 rounded-xl shadow text-center">
+            <p class="text-gray-600 text-lg">
+                Nenhuma publicação encontrada com os filtros selecionados.
+            </p>
+            {% if busca_atual or categoria_atual %}
+            <a href="{% url 'transparencia' %}" class="inline-block mt-4 text-green-700 font-bold underline">
+                Ver todas as publicações
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+    </main>
+
+    <!-- RODAPÉ UNIFICADO -->
+    <footer class="bg-gray-950 text-white py-8 px-6 mt-auto">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-2xl font-bold">APRAFAP</h3>
+            <p class="mt-2 text-gray-400">
+                Associação dos Produtores Rurais e Agricultores Familiares de Picuí
+            </p>
+            <p class="text-gray-400 mt-2">
+                Picuí - Paraíba
+            </p>
+            <p class="text-sm text-gray-500 mt-6">
+                © <span id="ano"></span> APRAFAP. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'institucional/js/script.js' %}"></script>
 
 </body>
 </html>
