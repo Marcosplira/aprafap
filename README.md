@@ -5,6 +5,11 @@
   <h2>🚜 APRAFAP</h2>
   <p><strong>Associação dos Produtores Rurais e Agricultores Familiares de Picuí</strong></p>
   <p>🌵 Picuí – Paraíba | Brasil 🇧🇷</p>
+    <img
+    src="institucional/static/institucional/images/capa-aprafap.png"
+    alt="APRAFAP - Agricultura Familiar de Picuí"
+    width="100%"
+  >
 
   ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
   ![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
