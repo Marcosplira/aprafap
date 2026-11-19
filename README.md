@@ -1,4 +1,11 @@
 # 🌱 APRAFAP — Portal Institucional e Portal da Transparência
+<p align="center">
+  <img
+    src="institucional/static/institucional/images/capa-aprafap.png"
+    alt="APRAFAP - Agricultura Familiar de Picuí"
+    width="100%"
+  >
+</p>
 
 <div align="center">
 
