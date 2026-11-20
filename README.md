@@ -1,27 +1,36 @@
 # 🌱 APRAFAP — Portal Institucional e Portal da Transparência
+<p align="center">
+  <img
+    src="institucional/static/institucional/images/hp5ZVUrxEpmFYp9XYg9FBNgU84KSEcQwxSpIi5V7571AuZE9ZgYysr0l2OMHMp5Hegxvdm91lgNMllH9-mKbl1WN3TzKD0gTQQYH3zMPkFltDZqbcubnvfeubGO0aPjG6B45VK47b66wszU9BxAlOL-ZdNok5HMsyKrtrg8JHF4oVaFLyVMerOCkl8uR8GPk.jpeg"
+    alt="APRAFAP - Agricultura Familiar de Picuí"
+    width="100%"
+  >
+</p>
 
-\<p align="center">   \<img src="institucional/static/institucional/images/capa-aprafap.jpg" alt="Agricultura familiar da APRAFAP" width="100%"> \</p>
+<div align="center">
 
-\<div align="center">
+  <img
+    src="institucional/static/institucional/images/Emblema Rural APRAFAP com Família Agricultora.png"
+    alt="Emblema Rural APRAFAP"
+    width="150"
+  >
 
-&#x20; \<img src="institucional/static/institucional/images/emblema-aprafap.png" alt="Emblema da APRAFAP" width="180">
+<div align="center">
 
-&#x20; \<h2>🚜 APRAFAP\</h2>
+  <h2>🚜 APRAFAP</h2>
+  <p><strong>Associação dos Produtores Rurais e Agricultores Familiares de Picuí</strong></p>
+  <p>🌵 Picuí – Paraíba | Brasil 🇧🇷</p>
 
-**Associação dos Produtores Rurais e Agricultores Familiares de Picuí**
+  <p>
+    <img src="https://shields.io" alt="Status">
+    <img src="https://shields.io" alt="Python">
+    <img src="https://shields.io" alt="Django">
+    <img src="https://shields.io" alt="JavaScript">
+    <img src="https://shields.io" alt="Tailwind CSS">
+    <img src="https://shields.io" alt="SQLite">
+  </p>
 
-🌵 Picuí – Paraíba | Brasil 🇧🇷
-
-&#x20; \<br>
-
-
-
-
-
-\
-
-
-\</div>
+</div>
 
 ---
 
@@ -73,52 +82,51 @@ O portal busca contribuir para a transparência, organização documental e aces
 - Controle de publicações.
 - Gerenciamento pelo Django Admin.
 
-## 🖥️ Organização do Sistema
+## 🖥️ Demonstração Visual do Sistema
 
-| Área             | Descrição                             |
-| ---------------- | ------------------------------------- |
-| 🏠 Início        | Apresentação institucional            |
-| 🌱 Associação    | História e informações institucionais |
-| 💰 Recursos      | Informações financeiras               |
-| 🚜 Maquinários   | Máquinas agrícolas recebidas          |
-| 🔧 Equipamentos  | Implementos e equipamentos            |
-| 📄 Transparência | Relatórios e documentos               |
-| ⚙️ Administração | Gerenciamento das publicações         |
+O portal está organizado nas seguintes áreas:
+
+| Área | Descrição |
+|---|---|
+| 🏠 Início | Apresentação institucional |
+| 🌱 Associação | História e informações institucionais |
+| 💰 Recursos | Informações financeiras |
+| 🚜 Maquinários | Máquinas agrícolas recebidas |
+| 🔧 Equipamentos | Implementos e equipamentos |
+| 📄 Transparência | Relatórios e documentos |
+| ⚙️ Administração | Gerenciamento das publicações |
 
 ## 🛠️ Tecnologias Utilizadas
 
-\<div align="center">
+<div align="center">
 
-| Tecnologia            | Aplicação                     |
-| --------------------- | ----------------------------- |
-| 🐍 Python             | Linguagem principal           |
-| 🎸 Django             | Framework Back-end            |
-| 🌐 HTML5              | Estrutura das páginas         |
-| 🎨 CSS3               | Estilização                   |
-| 💨 Tailwind CSS       | Interface e responsividade    |
-| ⚡ JavaScript          | Interatividade                |
-| 🗄️ SQLite            | Banco de dados                |
-| 📦 uv                 | Gerenciamento de dependências |
-| 💻 Visual Studio Code | Ambiente de desenvolvimento   |
+| Tecnologia | Aplicação |
+|---|---|
+| 🐍 Python | Linguagem principal |
+| 🎸 Django | Framework Back-end |
+| 🌐 HTML5 | Estrutura das páginas |
+| 🎨 CSS3 | Estilização |
+| 💨 Tailwind CSS | Interface e responsividade |
+| ⚡ JavaScript | Interatividade |
+| 🗄️ SQLite | Banco de dados |
+| 📦 uv | Gerenciamento de dependências |
+| 💻 VS Code | Ambiente de desenvolvimento |
 
-\</div>
+</div>
 
 ## 🏗️ Arquitetura do Sistema
 
 ```mermaid
 flowchart TD
     A["👤 Visitante"] --> B["🌐 Portal APRAFAP"]
-
     B --> C["🏠 Página Institucional"]
     B --> D["📊 Portal da Transparência"]
-
     D --> E["🔎 Pesquisa e Filtros"]
     D --> F["📄 Documentos Públicos"]
 
     G["🔐 Administrador"] --> H["⚙️ Django Admin"]
-
     H --> I["📝 Cadastro de Publicações"]
-    I --> J["🗄️ Banco de Dados"]
+    I --> J["🗄️ Banco de Dados SQLite"]
     J --> D
 ```
 
@@ -138,10 +146,7 @@ aprafap/
 │   ├── static/
 │   │   └── institucional/
 │   │       ├── css/
-│   │       ├── js/
-│   │       └── images/
-│   │           ├── capa-aprafap.jpg
-│   │           └── emblema-aprafap.png
+│   │       └── js/
 │   │
 │   ├── templates/
 │   │   └── institucional/
@@ -168,13 +173,13 @@ aprafap/
 git clone https://github.com/Marcosplira/aprafap.git
 ```
 
-### 2. Entrar na pasta do projeto
+Entre na pasta:
 
 ```bash
 cd aprafap
 ```
 
-### 3. Instalar as dependências
+### 2. Instalar as dependências
 
 Utilizando o gerenciador `uv`:
 
@@ -182,31 +187,31 @@ Utilizando o gerenciador `uv`:
 uv sync
 ```
 
-### 4. Aplicar as migrações do banco de dados
+### 3. Aplicar as migrações
 
 ```bash
 uv run python manage.py migrate
 ```
 
-### 5. Criar um superusuário
+### 4. Criar um superusuário
 
 ```bash
 uv run python manage.py createsuperuser
 ```
 
-### 6. Iniciar o servidor de desenvolvimento
+### 5. Iniciar o servidor
 
 ```bash
 uv run python manage.py runserver
 ```
 
-### 7. Acessar o sistema
+### 6. Acessar o sistema
 
-| Ambiente                   | Endereço                                                                     |
-| -------------------------- | ---------------------------------------------------------------------------- |
-| 🏠 Site institucional      | [http://127.0.0.1:8000/](http://127.0.0.1:8000/)                             |
-| 📊 Portal da Transparência | [http://127.0.0.1:8000/transparencia/](http://127.0.0.1:8000/transparencia/) |
-| 🔐 Painel Administrativo   | [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)                 |
+| Ambiente | Endereço |
+|---|---|
+| 🏠 Site institucional | http://127.0.0.1:8000/ |
+| 📊 Transparência | http://127.0.0.1:8000/transparencia/ |
+| 🔐 Administração | http://127.0.0.1:8000/admin/ |
 
 ## ⚖️ Fundamentação Legal
 
@@ -240,12 +245,12 @@ Este projeto foi desenvolvido para fins institucionais da APRAFAP – Picuí/PB.
 
 ---
 
-\<div align="center">
+<div align="center">
 
-&#x20; \<h3>🌱 APRAFAP — Fortalecendo a Agricultura Familiar!\</h3>
+  🌱 **APRAFAP — Fortalecendo a agricultura familiar!**
 
-🚜 Agricultura, transparência e desenvolvimento rural.
+  🚜 Agricultura, transparência e desenvolvimento rural.
 
-**Picuí – Paraíba 🇧🇷**
+  **Picuí – Paraíba 🇧🇷**
 
-\</div>
+</div>
