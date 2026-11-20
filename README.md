@@ -9,14 +9,6 @@
 
 <div align="center">
 
-  <img
-    src="institucional/static/institucional/images/Emblema Rural APRAFAP com Família Agricultora.png"
-    alt="Emblema Rural APRAFAP"
-    width="150"
-  >
-
-<div align="center">
-
   <h2>🚜 APRAFAP</h2>
   <p><strong>Associação dos Produtores Rurais e Agricultores Familiares de Picuí</strong></p>
   <p>🌵 Picuí – Paraíba | Brasil 🇧🇷</p>
