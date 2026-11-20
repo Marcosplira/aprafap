@@ -9,16 +9,26 @@
 
 <div align="center">
 
+  <img
+    src="institucional/static/institucional/images/Emblema Rural APRAFAP com Família Agricultora.png"
+    alt="Emblema Rural APRAFAP"
+    width="150"
+  >
+
+<div align="center">
+
   <h2>🚜 APRAFAP</h2>
   <p><strong>Associação dos Produtores Rurais e Agricultores Familiares de Picuí</strong></p>
   <p>🌵 Picuí – Paraíba | Brasil 🇧🇷</p>
 
-  ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-  ![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
-  ![Django](https://img.shields.io/badge/Django-Framework-092E20?logo=django&logoColor=white)
-  ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
-  ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-06B6D4?logo=tailwindcss&logoColor=white)
-  ![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite&logoColor=white)
+  <p>
+    <img src="https://shields.io" alt="Status">
+    <img src="https://shields.io" alt="Python">
+    <img src="https://shields.io" alt="Django">
+    <img src="https://shields.io" alt="JavaScript">
+    <img src="https://shields.io" alt="Tailwind CSS">
+    <img src="https://shields.io" alt="SQLite">
+  </p>
 
 </div>
 
